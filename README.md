@@ -10,3 +10,5 @@ Act as client receiving the searches founded by Google and show by another view.
 This project was created aiming to learn python. Maybe the scope is simple and useless.
 
 This project use Scrapy framework: http://scrapy.org/.
+
+For BDD: http://pythonhosted.org/behave/

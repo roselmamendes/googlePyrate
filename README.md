@@ -11,4 +11,8 @@ This project was created aiming to learn python. Maybe the scope is simple and u
 
 This project use Scrapy framework: http://scrapy.org/.
 
+easy_install scrapy or pip install scrapy
+
 For BDD: http://pythonhosted.org/behave/
+
+easy_install behave or pip install behave

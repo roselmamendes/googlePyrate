@@ -1,5 +1,5 @@
 # googlePyrate
-Act as client receiving the searches founded by Google and show by another view.
+Act as client receiving the searches found by Google and show by another view.
 
 ## Scope:
 

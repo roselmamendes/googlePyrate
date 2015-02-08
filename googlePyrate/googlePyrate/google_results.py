@@ -1,9 +1,8 @@
 class GoogleResults(object):
-   
-    def toSearch(self, toSearch):
-        self.forSearch = toSearch
         
-    def buildGoogleResults(self):
+    def buildGoogleResults(self, toSearch):
         #call spider
-        return "<div></div>"
-        
+        #url http://doc.scrapy.org/en/0.24/intro/tutorial.html
+        #xpath //*[@id="scrapy-tutorial"]/h1
+        #return '<h1>Scrapy Tutorial<a class="headerlink" href="#scrapy-tutorial" title="Permalink to this headline">¶</a></h1>'
+        return ""

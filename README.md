@@ -1,5 +1,8 @@
+Snap CI
 [![Build Status](https://snap-ci.com/roselmamendes/googlePyrate/branch/master/build_image)](https://snap-ci.com/roselmamendes/googlePyrate/branch/master)
 
+Travis CI
+[![Build Status](https://travis-ci.org/roselmamendes/googlePyrate.svg?branch=master)](https://travis-ci.org/roselmamendes/googlePyrate)
 # googlePyrate
 Act as client receiving the searches found by Google and show by another view.
 

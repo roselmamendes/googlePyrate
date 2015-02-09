@@ -1,3 +1,5 @@
+[![Build Status](https://snap-ci.com/roselmamendes/googlePyrate/branch/master/build_image)](https://snap-ci.com/roselmamendes/googlePyrate/branch/master)
+
 # googlePyrate
 Act as client receiving the searches found by Google and show by another view.
 

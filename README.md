@@ -21,3 +21,5 @@ This project use Scrapy framework: http://scrapy.org/.
     easy_install scrapy
     or
     pip install scrapy
+    or
+    Just run in the console: pip install -r requirements.txt

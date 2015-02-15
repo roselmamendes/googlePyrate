@@ -3,5 +3,5 @@ machine:
     version: 3.4.2
 
 test:
-	override:
-		- sh run_tests.sh
+  override:
+    - sh run_tests.sh

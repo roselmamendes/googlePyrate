@@ -6,6 +6,9 @@ Travis CI
 # googlePyrate
 Act as client receiving the searches found by Google and show by console.
 
+Circle CI
+[![Circle CI](https://circleci.com/gh/roselmamendes/googlePyrate.svg?style=svg)](https://circleci.com/gh/roselmamendes/googlePyrate)
+
 ## Scope:
 
   o- By console the user type what he/she desire to search.

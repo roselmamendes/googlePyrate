@@ -17,9 +17,4 @@ This project was created aiming to learn python.
 
 ## Requirements
 
-This project use Scrapy framework: http://scrapy.org/.
-    easy_install scrapy
-    or
-    pip install scrapy
-    or
-    Just run in the console: pip install -r requirements.txt
+This project use Python 3.4.2.

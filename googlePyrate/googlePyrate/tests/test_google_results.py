@@ -1,7 +1,7 @@
-import unittest
+from unittest import TestCase, mock
 from googleResults.google_results import GoogleResults
 
-class TestGoogleResults(unittest.TestCase):
+class TestGoogleResults(TestCase):
     
     expected_result = '<h1>Scrapy Tutorial<a class="headerlink" href="#scrapy-tutorial" title="Permalink to this headline">¶</a></h1>'
     
@@ -11,10 +11,10 @@ class TestGoogleResults(unittest.TestCase):
         result = googleResults.buildGoogleResults(toSearch)
         self.assertEqual(self.expected_result, result)
         
-    def test_get_html_results_from_google(self):
-
+    def test_crawl_method_is_called(self):
         googleResults = GoogleResults()
         toSearch = "scrapy"
-        result = googleResults.buildGoogleResults(toSearch)
-        self.assertEqual(self.expected_result, result)
+        googleResults.crawl = mock.Mock()
+        googleResults.buildGoogleResults(toSearch)
+        googleResults.crawl.assert_called_once_with('googleSpider')
         

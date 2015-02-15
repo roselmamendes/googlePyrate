@@ -54,7 +54,7 @@ if __name__ == "__main__":
 	items.append(crawler.crawl('spider1'))
 	for i in range(3):
 		items.append(crawler.crawl('spider2'))
-	print items
+	print(items)
 
 # Snippet imported from snippets.scrapy.org (which no longer works)
 # author: joehillen

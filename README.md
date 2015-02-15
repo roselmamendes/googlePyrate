@@ -3,11 +3,12 @@ Snap CI
 
 Travis CI
 [![Build Status](https://travis-ci.org/roselmamendes/googlePyrate.svg?branch=master)](https://travis-ci.org/roselmamendes/googlePyrate)
-# googlePyrate
-Act as client receiving the searches found by Google and show by console.
 
 Circle CI
 [![Circle CI](https://circleci.com/gh/roselmamendes/googlePyrate.svg?style=svg)](https://circleci.com/gh/roselmamendes/googlePyrate)
+
+# googlePyrate
+Act as client receiving the searches found by Google and show by console.
 
 ## Scope:
 

@@ -4,7 +4,7 @@ Snap CI
 Travis CI
 [![Build Status](https://travis-ci.org/roselmamendes/googlePyrate.svg?branch=master)](https://travis-ci.org/roselmamendes/googlePyrate)
 # googlePyrate
-Act as client receiving the searches found by Google and show by another view.
+Act as client receiving the searches found by Google and show by console.
 
 ## Scope:
 
@@ -12,12 +12,12 @@ Act as client receiving the searches found by Google and show by another view.
   
   o- The googlePYrate get the results from Google and return the result using the console.
   
-This project was created aiming to learn python. Maybe the scope is simple and useless.
+This project was created aiming to learn python.
+
+
+## Requirements
 
 This project use Scrapy framework: http://scrapy.org/.
-
-easy_install scrapy or pip install scrapy
-
-For BDD: http://pythonhosted.org/behave/
-
-easy_install behave or pip install behave
+    easy_install scrapy
+    or
+    pip install scrapy

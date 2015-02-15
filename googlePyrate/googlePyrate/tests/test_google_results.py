@@ -1,5 +1,5 @@
 import unittest
-from google_results import GoogleResults
+from googleResults.google_results import GoogleResults
 
 class TestGoogleResults(unittest.TestCase):
     
@@ -9,11 +9,12 @@ class TestGoogleResults(unittest.TestCase):
         googleResults = GoogleResults()
         toSearch = "scrapy"
         result = googleResults.buildGoogleResults(toSearch)
-        self.assertEqual(result, self.expected_result)
+        self.assertEqual(self.expected_result, result)
         
     def test_get_html_results_from_google(self):
+
         googleResults = GoogleResults()
         toSearch = "scrapy"
         result = googleResults.buildGoogleResults(toSearch)
-        self.assertEqual(result, self.expected_result)
+        self.assertEqual(self.expected_result, result)
         

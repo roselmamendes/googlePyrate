@@ -1,6 +1,7 @@
 from unittest import TestCase, mock
 from googleResults.google_results import GoogleResults
 
+
 class TestGoogleResults(TestCase):
 
     def test_crawl_method_is_called(self):

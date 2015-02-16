@@ -8,7 +8,7 @@ class GoogleCrawlerTest(TestCase):
         url = 'http://www.codingdojo.org'
         google_crawler = GoogleCrawler(url)
 
-        self.assertIsNotNone('', google_crawler.getresponse())
+        self.assertIsNotNone(google_crawler.getresponse())
 
     def test_should_a_search_with_more_than_one_word_with_plus_between_the_words(self):
         url = 'http://www.codingdojo.org'

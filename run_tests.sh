@@ -1,5 +1,5 @@
 #!/bin/bash
-set -ev
+set -e
 echo '---------------------------Running Tests--------------------------'
 python3 -m unittest
 echo '---------------------------Running PEP8---------------------------'

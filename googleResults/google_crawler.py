@@ -1,6 +1,7 @@
 from pyquery import PyQuery
 import requests
 
+
 class GoogleCrawler(object):
 
     def buildgoogleresults(self, tosearch):
@@ -11,5 +12,5 @@ class GoogleCrawler(object):
         r = requests.get(url)
         d = PyQuery(r.text)
         if d:
-            print(d)
+            pass
         return r.status_code

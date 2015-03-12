@@ -4,13 +4,18 @@ import requests
 
 class GoogleCrawler(object):
 
+    url = 'http://www.google.com/search?q='
+
     def buildgoogleresults(self, tosearch):
         self.forsearch = tosearch.replace(' ', '+')
+        self.search()
         return self.forsearch
 
-    def call(self, url):
-        r = requests.get(url)
-        d = PyQuery(r.text)
-        if d:
-            pass
-        return r.status_code
+    def search(self):
+        r = requests.get(self.url + self.forsearch)
+
+        if r.status_code == 200:
+            d = PyQuery(r.text)
+            return 'Sucess'
+        else:
+            return 'Failed'

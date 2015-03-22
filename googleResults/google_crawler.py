@@ -16,6 +16,5 @@ class GoogleCrawler(object):
 
         if r.status_code == 200:
             d = PyQuery(r.text)
-            return 'Sucess'
-        else:
-            return 'Failed'
+
+        return r.status_code

@@ -18,12 +18,9 @@ class GoogleCrawlerTest(TestCase):
         self.assertEqual('Sucess', google_crawler.search())
 
     @requests_mock.Mocker()
-    def xtest_if_there_is_a_problem_calling_a_google_page_return_a_status_code_different_than_200(self, request_mock):
-        adapter = requests_mock.Adapter()
-        adapter.register_uri('GET', 'http://www.google.com/teste', text='<br>', status_code=400)
-        request_mock.get('http://www.google.com/teste')
+    def test_if_there_is_a_problem_calling_a_google_page_return_a_status_code_different_than_200(self, request_mock):
+        request_mock.get(url='http://www.google.com/search?q=teste', status_code=400)
         google_crawler = GoogleCrawler()
-        # google_crawler.url = 'http://www.google.com/teste'
         google_crawler.buildgoogleresults('teste')
         self.assertEqual('Failed', google_crawler.search())
 

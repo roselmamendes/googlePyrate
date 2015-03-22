@@ -23,8 +23,8 @@ class GoogleCrawlerTest(TestCase):
 
         self.assertEqual(400, actual_status_code)
 
-    def test_should_search_with_google_url_and_treat_search_with_more_than_one_word(self, request_mock):
-        request_mock.get('http://www.google.com/search?q=python+crawler', text='<br>')
+    def test_should_search_with_google_url_and_treat_search_with_more_than_one_word(self, check_if_request_call_get_with):
+        check_if_request_call_get_with.get('http://www.google.com/search?q=python+crawler', text='<br>')
         tosearch = "python crawler"
         google_crawler = GoogleCrawler()
 

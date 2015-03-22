@@ -38,7 +38,7 @@ class GoogleCrawlerTest(TestCase):
         _, actual_result = google_crawler.search(tosearch)
 
         expected_result = {
-            '<a>': 'Scrapy | A Fast and Powerful Scraping and Web Crawling ...',
+            'title': 'Scrapy | A Fast and Powerful Scraping and Web Crawling ...',
             'href': 'http://scrapy.org/'
         }
         self.assertEqual(expected_result, actual_result[0])

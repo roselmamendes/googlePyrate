@@ -1,37 +1,36 @@
 from pyquery import PyQuery
 import requests
 
+URL = 'http://www.google.com/search?q='
 
-class GoogleCrawler(object):
 
-    url = 'http://www.google.com/search?q='
+class GoogleCrawler:
 
-    def search(self, tosearch):
-        self.forsearch = tosearch.replace(' ', '+')
+    def search(self, for_search):
         results = []
 
-        r = requests.get(self.url + self.forsearch)
+        r = requests.get(
+            URL +
+            for_search.replace(' ', '+'))
+
         if r.status_code == 200:
-            results = self.buildResults(r.text)
+            results = self.build_results_from_html(r.text)
 
         return r.status_code, results
 
-    def buildResults(self, html):
+    def build_results_from_html(self, html):
         d = PyQuery(html)
         # //*[@id="rso"]/div[2]/li[1]/div/h3/a
-        # //*[@id="rso"]/div[2]
-        ol_tag = d('#rso')
-
-        div_tag = ol_tag('div').eq(1)
+        div_tag = d('#rso div').eq(1)
 
         a_tag = div_tag('li div h3 a')
 
         results = []
 
-        for a in range(0, len(a_tag)):
+        for i in range(0, len(a_tag)):
             results.append({
-                '<a>': a_tag[a].text,
-                'href': a_tag[a].get('href')
+                'title': a_tag[i].text,
+                'href': a_tag[i].get('href')
                 })
 
         return results

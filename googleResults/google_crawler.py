@@ -6,15 +6,17 @@ class GoogleCrawler(object):
 
     url = 'http://www.google.com/search?q='
 
-    def buildgoogleresults(self, tosearch):
+    def search(self, tosearch):
         self.forsearch = tosearch.replace(' ', '+')
-        self.search()
-        return self.forsearch
+        results = []
 
-    def search(self):
         r = requests.get(self.url + self.forsearch)
-
         if r.status_code == 200:
-            d = PyQuery(r.text)
+            results = self.buildResults(r.text)
 
-        return r.status_code
+        return r.status_code, results
+
+    def buildResults(self, html):
+        d = PyQuery(html)
+
+        return []

@@ -1,4 +1,4 @@
-from googleResults.google_crawler import GoogleCrawler
+from google_pyrate.google_crawler import GoogleCrawler
 
 
 class GooglePyrate:

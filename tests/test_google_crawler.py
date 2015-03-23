@@ -1,6 +1,6 @@
 from unittest import TestCase
 import requests_mock
-from googleResults.google_crawler import GoogleCrawler
+from google_pyrate.google_crawler import GoogleCrawler
 from tests.load_html_page import load_html
 
 

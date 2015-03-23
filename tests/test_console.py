@@ -1,6 +1,6 @@
 from unittest import TestCase
 from unittest.mock import Mock
-from googleResults.google_pyrate import GooglePyrate
+from google_pyrate.google_pyrate import GooglePyrate
 
 
 class ConsoleTest(TestCase):

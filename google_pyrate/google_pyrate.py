@@ -19,9 +19,16 @@ class GooglePyrate:
 
     @staticmethod
     def waiting_for_input():
-        GooglePyrate.show_the_results('')
+        GooglePyrate.show_the_results_for('')
 
     @staticmethod
-    def show_the_results(for_search):
+    def show_the_results_for(for_search):
         google_crawler = GoogleCrawler()
-        google_crawler.search(for_search)
+        results = google_crawler.search(for_search)
+
+        GooglePyrate.build_visual_results(results)
+
+    @staticmethod
+    def build_visual_results(results):
+        return "Title                                                     |Link\n" \
+               "Scrapy | A Fast and Powerful Scraping and Web Crawling ...|http://scrapy.org/ "

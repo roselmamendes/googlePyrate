@@ -26,10 +26,11 @@ class ConsoleTest(TestCase):
     @patch('google_pyrate.google_crawler.GoogleCrawler.search')
     def test_after_receive_what_should_research_start_building_the_results(self, google_crawler_search):
         for_search = 'python crawler'
-        google_crawler_search.return_value = first_expected_result = {
+        first_expected_result = {
             'title': 'Scrapy | A Fast and Powerful Scraping and Web Crawling ...',
             'href': 'http://scrapy.org/'
         }
+        google_crawler_search.return_value = 200, first_expected_result
         patch('google_pyrate.google_pyrate.GooglePyrate.build_visual_results').start()
 
         GooglePyrate.show_the_results_for(for_search)
@@ -41,7 +42,7 @@ class ConsoleTest(TestCase):
 
     @patch('google_pyrate.google_crawler.GoogleCrawler.search')
     def test_should_show_results_correctly(self, google_crawler_search):
-        google_crawler_search.return_value = first_expected_result = {
+        google_crawler_search.return_value = 200, {
             'title': 'Scrapy | A Fast and Powerful Scraping and Web Crawling ...',
             'href': 'http://scrapy.org/'
         }

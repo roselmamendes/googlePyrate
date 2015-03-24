@@ -24,7 +24,7 @@ class GooglePyrate:
     @staticmethod
     def show_the_results_for(for_search):
         google_crawler = GoogleCrawler()
-        results = google_crawler.search(for_search)
+        _, results = google_crawler.search(for_search)
 
         GooglePyrate.build_visual_results(results)
 

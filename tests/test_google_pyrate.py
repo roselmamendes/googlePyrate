@@ -1,5 +1,5 @@
 from unittest import TestCase
-from unittest.mock import patch
+from unittest.mock import patch, Mock
 from google_pyrate.google_pyrate import GooglePyrate
 
 
@@ -16,3 +16,13 @@ class ConsoleTest(TestCase):
         GooglePyrate.show_the_results('python crawler')
 
         google_crawler_search.assert_called_once_with('python crawler')
+
+    def test_should_start_correctly(self):
+        GooglePyrate.welcome_message = Mock()
+        GooglePyrate.waiting_for_input_message = Mock()
+        GooglePyrate.waiting_for_input = Mock()
+        GooglePyrate.start()
+
+        self.assertTrue(GooglePyrate.welcome_message.called)
+        self.assertTrue(GooglePyrate.waiting_for_input_message.called)
+        self.assertTrue(GooglePyrate.waiting_for_input.called)

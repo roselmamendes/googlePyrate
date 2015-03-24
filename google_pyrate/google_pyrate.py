@@ -4,6 +4,12 @@ from google_pyrate.google_crawler import GoogleCrawler
 class GooglePyrate:
 
     @staticmethod
+    def start():
+        GooglePyrate.welcome_message()
+        GooglePyrate.waiting_for_input_message()
+        GooglePyrate.waiting_for_input()
+
+    @staticmethod
     def welcome_message():
         return 'Welcome to GooglePyrate!'
 

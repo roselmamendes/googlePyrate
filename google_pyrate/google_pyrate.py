@@ -13,9 +13,9 @@ class GooglePyrate:
 
     @staticmethod
     def waiting_for_input():
-        pass
+        GooglePyrate.show_the_results('')
 
     @staticmethod
-    def show_the_results():
+    def show_the_results(for_search):
         google_crawler = GoogleCrawler()
-        google_crawler.search('')
+        google_crawler.search(for_search)

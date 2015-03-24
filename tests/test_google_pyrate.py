@@ -54,3 +54,5 @@ class ConsoleTest(TestCase):
                                  "Scrapy | A Fast and Powerful Scraping and Web Crawling ...|http://scrapy.org/ "
 
         self.assertEqual(expected_visual_result, actual_visual_result)
+
+    # TODO: Check status code, Check the possibility of a new search

@@ -56,3 +56,13 @@ class ConsoleTest(TestCase):
         self.assertEqual(expected_visual_result, actual_visual_result)
 
     # TODO: Check status code, Check the possibility of a new search
+    @patch('google_pyrate.google_crawler.GoogleCrawler.search')
+    def test_if_trying_get_results_return_status_code_different_than_200_should_treat_this(self, google_crawler_search):
+        for_search = 'python crawler'
+        GooglePyrate.show_in_console = Mock()
+        google_crawler_search.return_value = 400, []
+
+        GooglePyrate.show_the_results_for(for_search)
+
+        GooglePyrate.show_in_console.assert_called_once_with('Unfortunately it is not possible show the results.'
+                                                             ' Try again in another time.')

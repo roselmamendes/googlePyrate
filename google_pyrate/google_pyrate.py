@@ -1,49 +1,45 @@
 from google_pyrate.google_crawler import GoogleCrawler
+from google_pyrate.user_interface import UI
 
 
 class GooglePyrate:
 
-    @staticmethod
-    def start():
-        GooglePyrate.welcome_message()
-        GooglePyrate.main_menu()
+    ui = UI()
+    google_crawler = GoogleCrawler()
 
-    @staticmethod
-    def main_menu():
-        GooglePyrate.waiting_for_input_message()
-        GooglePyrate.waiting_for_input()
+    def start(self):
+        self.welcome_message()
+        self.main_menu()
 
-    @staticmethod
-    def welcome_message():
+    def main_menu(self):
+        self.waiting_for_input_message()
+        self.waiting_for_input()
+
+    def welcome_message(self):
         return 'Welcome to GooglePyrate!'
 
-    @staticmethod
-    def waiting_for_input_message():
+    def waiting_for_input_message(self):
         return 'What Do You Look for? Type here ->'
 
-    @staticmethod
-    def waiting_for_input():
-        GooglePyrate.show_the_results_for('')
+    def waiting_for_input(self):
+        input = self.ui.get_input()
+        self.show_the_results_for(input)
 
-    @staticmethod
-    def show_the_results_for(for_search):
-        google_crawler = GoogleCrawler()
-        status_code, results = google_crawler.search(for_search)
+    def show_the_results_for(self, for_search):
+        status_code, results = self.google_crawler.search(for_search)
 
         output = ''
 
         if status_code == 200:
-            output = GooglePyrate.build_visual_results(results)
+            output = self.build_visual_results(results)
         else:
             output = 'Unfortunately it is not possible show the results. Try again in another time.'
 
-        GooglePyrate.show_in_console(output)
+        self.show_in_console(output)
 
-    @staticmethod
-    def build_visual_results(results):
+    def build_visual_results(self, results):
         return "Title                                                     |Link\n" \
                "Scrapy | A Fast and Powerful Scraping and Web Crawling ...|http://scrapy.org/ "
 
-    @staticmethod
-    def show_in_console(output):
-        pass
+    def show_in_console(self, output):
+        self.ui.set_output(output)

@@ -20,8 +20,8 @@ class ConsoleTest(TestCase):
 
         google_pyrate.start()
 
-        self.assertTrue(google_pyrate.welcome_message.called)
-        self.assertTrue(google_pyrate.waiting_for_input_message.called)
+        self.assertTrue(GooglePyrate.welcome_message.called)
+        self.assertTrue(GooglePyrate.waiting_for_input_message.called)
         self.assertTrue(google_pyrate.waiting_for_input.called)
 
     @patch('google_pyrate.google_crawler.GoogleCrawler.search')

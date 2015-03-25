@@ -6,6 +6,10 @@ class GooglePyrate:
     @staticmethod
     def start():
         GooglePyrate.welcome_message()
+        GooglePyrate.main_menu()
+
+    @staticmethod
+    def main_menu():
         GooglePyrate.waiting_for_input_message()
         GooglePyrate.waiting_for_input()
 

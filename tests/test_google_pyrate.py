@@ -14,8 +14,8 @@ class ConsoleTest(TestCase):
 
     def test_should_start_correctly(self):
         google_pyrate = GooglePyrate()
-        google_pyrate.welcome_message = Mock()
-        google_pyrate.waiting_for_input_message = Mock()
+        GooglePyrate.welcome_message = Mock()
+        GooglePyrate.waiting_for_input_message = Mock()
         google_pyrate.waiting_for_input = Mock()
 
         google_pyrate.start()

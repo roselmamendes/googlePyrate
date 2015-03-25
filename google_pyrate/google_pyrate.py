@@ -15,10 +15,12 @@ class GooglePyrate:
         self.waiting_for_input_message()
         self.waiting_for_input()
 
-    def welcome_message(self):
+    @staticmethod
+    def welcome_message():
         return 'Welcome to GooglePyrate!'
 
-    def waiting_for_input_message(self):
+    @staticmethod
+    def waiting_for_input_message():
         return 'What Do You Look for? Type here ->'
 
     def waiting_for_input(self):

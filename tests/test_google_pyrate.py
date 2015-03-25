@@ -7,12 +7,10 @@ from google_pyrate.google_pyrate import GooglePyrate
 class ConsoleTest(TestCase):
 
     def test_should_return_welcome_message(self):
-        google_pyrate = GooglePyrate()
-        self.assertEqual('Welcome to GooglePyrate!', google_pyrate.welcome_message())
+        self.assertEqual('Welcome to GooglePyrate!', GooglePyrate.welcome_message())
 
     def test_should_return_start_message_waiting_for_input(self):
-        google_pyrate = GooglePyrate()
-        self.assertEqual('What Do You Look for? Type here ->', google_pyrate.waiting_for_input_message())
+        self.assertEqual('What Do You Look for? Type here ->', GooglePyrate.waiting_for_input_message())
 
     def test_should_start_correctly(self):
         google_pyrate = GooglePyrate()

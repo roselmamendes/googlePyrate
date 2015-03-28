@@ -1,47 +1,30 @@
-from google_pyrate.google_crawler import GoogleCrawler
-from google_pyrate.user_interface import UI
-
+__path__ = ['google_pyrate']
+from google_pyrate.crawler_google import busca
 
 class GooglePyrate:
 
-    ui = UI()
-    google_crawler = GoogleCrawler()
+    def inicio(self):
+        print('Bem vinda ao Google Pyrate')
+        busca = input('O que você deseja procurar?')
+        self.mostrar_os_resultados_para(busca)
 
-    def start(self):
-        self.welcome_message()
-        self.main_menu()
+    def mostrar_os_resultados_para(self, a_buscar):
+        # status_code, resultados = self.google_crawler.search(busca)
+        resultados = busca(a_buscar)
 
-    def main_menu(self):
-        self.waiting_for_input_message()
-        self.waiting_for_input()
+        saida = ''
 
-    @staticmethod
-    def welcome_message():
-        return 'Welcome to GooglePyrate!'
+        saida = self.montar_os_resultados(resultados)
 
-    @staticmethod
-    def waiting_for_input_message():
-        return 'What Do You Look for? Type here ->'
+        self.mostrar_no_terminal(saida)
 
-    def waiting_for_input(self):
-        input = self.ui.get_input()
-        self.show_the_results_for(input)
+    def montar_os_resultados(self, resultados):
+        saida = ''
+        for resultado in resultados:
+            saida += "\nTitle                                                     |Link\n" + resultado['link_title'] +\
+                    "|" + resultado['link_url']
 
-    def show_the_results_for(self, for_search):
-        status_code, results = self.google_crawler.search(for_search)
+        return saida
 
-        output = ''
-
-        if status_code == 200:
-            output = self.build_visual_results(results)
-        else:
-            output = 'Unfortunately it is not possible show the results. Try again in another time.'
-
-        self.show_in_console(output)
-
-    def build_visual_results(self, results):
-        return "Title                                                     |Link\n" \
-               "Scrapy | A Fast and Powerful Scraping and Web Crawling ...|http://scrapy.org/ "
-
-    def show_in_console(self, output):
-        self.ui.set_output(output)
+    def mostrar_no_terminal(self, saida):
+        print(saida)

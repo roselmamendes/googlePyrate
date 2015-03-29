@@ -17,7 +17,7 @@ class ConsoleTest(TestCase):
         mock.patch('google_pyrate.google_crawler.GoogleCrawler.search',
                    return_value=[200, first_expected_result]).start()
 
-    def xtest_should_treat_when_receive_a_blank_input(self):
+    def test_should_treat_when_receive_a_blank_input(self):
         google_pyrate = GooglePyrate()
         google_pyrate.show_in_console = mock.Mock()
 

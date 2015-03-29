@@ -8,13 +8,18 @@ class GooglePyrate:
     google_crawler = GoogleCrawler()
 
     def show_the_results_for(self, for_search):
-        status_code, results = self.google_crawler.search(for_search)
 
+        status_code = 0
         output = ''
+
+        if not for_search:
+            output = 'Nothing to show... Are you sure that you type something?'
+        else:
+            status_code, results = self.google_crawler.search(for_search)
 
         if status_code == 200:
             output = self.build_visual_results(results)
-        else:
+        elif status_code == 400 or status_code == 404:
             output = 'Unfortunately it is not possible show the results. Try again in another time.'
 
         self.show_in_console(output)

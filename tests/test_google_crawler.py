@@ -40,6 +40,6 @@ class GoogleCrawlerTest(TestCase):
 
         first_expected_result = {
             'title': 'Scrapy | A Fast and Powerful Scraping and Web Crawling ...',
-            'href': 'http://scrapy.org/'
+            'href': 'http://scrapy.org'
         }
         self.assertEqual(first_expected_result, actual_result[0])

@@ -7,26 +7,6 @@ class GooglePyrate:
     ui = UI()
     google_crawler = GoogleCrawler()
 
-    def start(self):
-        self.welcome_message()
-        self.main_menu()
-
-    def main_menu(self):
-        self.waiting_for_input_message()
-        self.waiting_for_input()
-
-    @staticmethod
-    def welcome_message():
-        return 'Welcome to GooglePyrate!'
-
-    @staticmethod
-    def waiting_for_input_message():
-        return 'What Do You Look for? Type here ->'
-
-    def waiting_for_input(self):
-        input = self.ui.get_input()
-        self.show_the_results_for(input)
-
     def show_the_results_for(self, for_search):
         status_code, results = self.google_crawler.search(for_search)
 

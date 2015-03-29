@@ -6,24 +6,6 @@ from google_pyrate.google_pyrate import GooglePyrate
 
 class ConsoleTest(TestCase):
 
-    def test_should_return_welcome_message(self):
-        self.assertEqual('Welcome to GooglePyrate!', GooglePyrate.welcome_message())
-
-    def test_should_return_start_message_waiting_for_input(self):
-        self.assertEqual('What Do You Look for? Type here ->', GooglePyrate.waiting_for_input_message())
-
-    def test_should_start_correctly(self):
-        google_pyrate = GooglePyrate()
-        GooglePyrate.welcome_message = Mock()
-        GooglePyrate.waiting_for_input_message = Mock()
-        google_pyrate.waiting_for_input = Mock()
-
-        google_pyrate.start()
-
-        self.assertTrue(GooglePyrate.welcome_message.called)
-        self.assertTrue(GooglePyrate.waiting_for_input_message.called)
-        self.assertTrue(google_pyrate.waiting_for_input.called)
-
     @patch('google_pyrate.google_crawler.GoogleCrawler.search')
     def test_after_receive_what_should_research_start_building_the_results(self, google_crawler_search):
         for_search = 'python crawler'

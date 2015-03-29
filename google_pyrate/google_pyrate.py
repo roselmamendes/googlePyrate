@@ -26,8 +26,13 @@ class GooglePyrate:
         self.show_in_console(output)
 
     def build_visual_results(self, results):
-        return "Title                                                     |Link\n" \
-               "Scrapy | A Fast and Powerful Scraping and Web Crawling ...|http://scrapy.org/ "
+        saida = ''
+        for result in results:
+            saida += '\n----------------'\
+                     '\n Titulo: ' + result['title'] +\
+                     '\nLink: ' + result['href']
+
+        return saida
 
     def show_in_console(self, output):
         self.ui.set_output(output)

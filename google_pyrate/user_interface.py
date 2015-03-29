@@ -4,4 +4,4 @@ class UI:
         pass
 
     def set_output(self, output):
-        pass
+        print(output)

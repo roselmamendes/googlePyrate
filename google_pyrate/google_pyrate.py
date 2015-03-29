@@ -1,3 +1,4 @@
+__path__ = ['google_pyrate']
 from google_pyrate.google_crawler import GoogleCrawler
 from google_pyrate.user_interface import UI
 

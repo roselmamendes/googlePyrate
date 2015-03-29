@@ -22,3 +22,11 @@ This project was created aiming to learn python.
 ## Requirements
 
 This project use Python 3.4.2.
+
+## Using
+For now:
+  o- Do a git clone of this project
+  git clone https://github.com/roselmamendes/googlePyrate.git
+
+  o- In the console go to created folder after the git clone and run the command: 
+  python google_pyrate [what would you like to search]

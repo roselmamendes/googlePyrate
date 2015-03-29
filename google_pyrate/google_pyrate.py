@@ -21,8 +21,9 @@ class GooglePyrate:
     def montar_os_resultados(self, resultados):
         saida = ''
         for resultado in resultados:
-            saida += "\nTitle                                                     |Link\n" + resultado['link_title'] +\
-                    "|" + resultado['link_url']
+            saida += '\n----------------'\
+                     '\n Titulo: ' + resultado['titulo']+\
+                     '\nLink: ' + resultado['url']
 
         return saida
 

@@ -3,14 +3,6 @@ from cssselect import HTMLTranslator
 import lxml.html
 import requests
 
-_HEADERS = {
-        'User-Agent': 'Mozilla/5.0',
-        'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-        'Accept-Encoding': 'gzip, deflate',
-        'Connection': 'close',
-        'DNT': '1'
-}
-
 _SEARCH_URL = 'http://www.google.com/search'
 
 _SEARCH_PARAMS = {
@@ -54,25 +46,28 @@ _SEARCH_PARAMS = {
 }
 
 def busca(a_buscar):
-    _SEARCH_PARAMS.update({'q': a_buscar})
-    r = requests.get(_SEARCH_URL, headers=_HEADERS,
-                                 params=_SEARCH_PARAMS, timeout=3.0)
+    r = requests.get(_SEARCH_URL, params={'q': a_buscar})
 
     html = r.text
 
     doc = UnicodeDammit(html, is_html=True)
     parser = lxml.html.HTMLParser(encoding=doc.declared_html_encoding)
     dom = lxml.html.document_fromstring(html, parser=parser)
-    dom.resolve_base_href()
 
-    li_g_results = dom.xpath(HTMLTranslator().css_to_xpath('li.g'))
+    li_g_tags = dom.xpath(HTMLTranslator().css_to_xpath('li.g'))
 
     links = []
-    for e in li_g_results:
-        link_element = e.xpath(HTMLTranslator().css_to_xpath('h3.r > a:first-child'))
-        link = link_element[0].get('href')
-        title = link_element[0].text_content()
+    for li_tag in li_g_tags:
+        a_tag = li_tag.xpath(HTMLTranslator().css_to_xpath('h3.r > a:first-child'))
+        url = formata_url(a_tag[0].get('href'))
+        titulo = a_tag[0].text_content()
 
-        links.append({"link_title": title, "link_url": link})
+        links.append({"titulo": titulo, "url": url})
 
     return links
+
+
+def formata_url(url):
+    return url[url.find('http'):url.find('&sa')]
+# https://github.com/endorama/google-crawler
+# http://incolumitas.com/2013/01/06/googlesearch-a-rapid-python-class-to-get-search-results/

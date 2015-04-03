@@ -2,6 +2,10 @@ __path__ = ['google_pyrate']
 from google_pyrate.google_crawler import GoogleCrawler
 from google_pyrate.user_interface import UI
 
+STATUS_CODE = 200
+PAGE_NOT_FOUND = 404
+BAD_REQUEST = 400
+
 
 class GooglePyrate:
 
@@ -18,9 +22,9 @@ class GooglePyrate:
         else:
             status_code, results = self.google_crawler.search(for_search)
 
-        if status_code == 200:
+        if status_code == STATUS_CODE:
             output = self.build_visual_results(results)
-        elif status_code == 400 or status_code == 404:
+        elif status_code == BAD_REQUEST or status_code == PAGE_NOT_FOUND:
             output = 'Unfortunately it is not possible show the results. Try again in another time.'
 
         self.show_in_console(output)

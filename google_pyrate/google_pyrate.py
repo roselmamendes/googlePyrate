@@ -16,18 +16,24 @@ class GooglePyrate:
 
         status_code = 0
         output = ''
+        results = []
 
         if not for_search:
             output = 'Nothing to show... Are you sure that you type something?'
         else:
             status_code, results = self.google_crawler.search(for_search)
+            output = self.treat_status_and_results(status_code, results)
 
+        self.show_in_console(output)
+
+    def treat_status_and_results(self, status_code, results):
+        output = ''
         if status_code == STATUS_CODE:
             output = self.build_visual_results(results)
         elif status_code == BAD_REQUEST or status_code == PAGE_NOT_FOUND:
             output = 'Unfortunately it is not possible show the results. Try again in another time.'
 
-        self.show_in_console(output)
+        return output
 
     def build_visual_results(self, results):
         saida = ''

@@ -13,7 +13,6 @@ class GooglePyrate:
     google_crawler = GoogleCrawler()
 
     def show_the_results_for(self, for_search):
-
         status_code = 0
         output = ''
         results = []

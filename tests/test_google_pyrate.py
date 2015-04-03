@@ -29,7 +29,6 @@ class ConsoleTest(TestCase):
 
         self.assertEqual(expected_visual_result, actual_visual_result)
 
-    # TODO: Check the possibility of a new search
     def test_if_trying_get_results_return_status_code_different_than_200_should_treat_this(self):
         google_pyrate = GooglePyrate()
         google_pyrate.show_in_console = mock.Mock()

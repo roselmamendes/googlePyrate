@@ -1,7 +1,5 @@
 import requests
-from bs4 import UnicodeDammit
-from cssselect import HTMLTranslator
-import lxml.html
+from bs4 import BeautifulSoup
 
 URL = 'http://www.google.com/search'
 
@@ -77,16 +75,14 @@ class GoogleCrawler:
         return r.status_code, results
 
     def build_results_from_html(self, html):
-        doc = UnicodeDammit(html, is_html=True)
-        parser = lxml.html.HTMLParser(encoding=doc.declared_html_encoding)
-        html_element = lxml.html.document_fromstring(html, parser=parser)
+        html_element = BeautifulSoup(html)
 
-        li_g_tags = html_element.xpath(HTMLTranslator().css_to_xpath('li.g'))
+        li_g_tags = html_element.select('li.g')
 
         results = []
         for li_tag in li_g_tags:
-            a_tag = li_tag.xpath(HTMLTranslator().css_to_xpath('h3.r > a:first-child'))
-            results.append({'title': a_tag[0].text_content(),
+            a_tag = li_tag.select('h3.r > a:first-child')
+            results.append({'title': a_tag[0].get_text(),
                            'href': self.formata_url(a_tag[0].get('href'))})
 
         return results

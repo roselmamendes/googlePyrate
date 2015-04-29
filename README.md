@@ -1,8 +1,5 @@
-Snap CI
-[![Build Status](https://snap-ci.com/roselmamendes/googlePyrate/branch/master/build_image)](https://snap-ci.com/roselmamendes/googlePyrate/branch/master)
-
 Travis CI
-[![Build Status](https://travis-ci.org/roselmamendes/googlePyrate.svg?branch=master)](https://travis-ci.org/roselmamendes/googlePyrate)
+[![Build Status](https://travis-ci.org/roselmamendes/googlePyrate.svg?branch=beautifulsoup)](https://travis-ci.org/roselmamendes/googlePyrate)
 
 Circle CI
 [![Circle CI](https://circleci.com/gh/roselmamendes/googlePyrate.svg?style=svg)](https://circleci.com/gh/roselmamendes/googlePyrate)
